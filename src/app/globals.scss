@@ -1,0 +1,13 @@
+$enable-negative-margins: true;
+
+@import "~bootstrap/scss/bootstrap";
+
+@import "../styles/layout/avatar";
+@import "../styles/layout/footer";
+@import "../styles/layout/header";
+@import "../styles/layout/progress";
+@import "../styles/layout/sidebar";
+
+// @import "~nprogress/nprogress.css";
+
+@import "../styles/_custom";

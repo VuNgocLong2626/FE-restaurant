@@ -1,0 +1,26 @@
+.sidebar {
+    flex: 0 0 16rem;
+    width: 16rem;
+    background: #3c4b64;
+    color: rgba(255, 255, 255, 0.6);
+    transition: margin-left 0.15s, margin-right 0.15s, box-shadow 0.075s, transform 0.15s, width 0.15s, z-index 0s ease 0.15s;
+    z-index: 1030;
+}
+
+.sidebar .sidebarBrand {
+    flex: 0 0 4rem;
+    background: rgba(0, 0, 21, 0.2);
+}
+
+.hideSidebar {
+    visibility: hidden;
+}
+
+.hideSidebar_md0 {
+    margin-left: 0;
+}
+
+.wrapper {
+    padding-left: 16rem;
+    transition: padding 0.15s;
+}

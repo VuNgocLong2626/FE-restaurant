@@ -1,0 +1,31 @@
+
+.content {
+    padding: 7rem 0;
+}
+
+.form_group {
+    overflow: hidden;
+    margin-bottom: 0;
+    padding: 15px 15px;
+    border-bottom: none;
+    position: relative;
+    background: #edf2f5;
+    border-bottom: 1px solid #e6edf1;
+}
+.form_group_label {
+    font-size: 12px;
+    display: block;
+    margin-bottom: 0;
+    color: #b3b3b3;
+}
+
+.btn_login {
+    width: 100%;
+    margin-top: 50px;
+}
+
+@media (max-width: 576px) {
+    .element {
+      display: none;
+    }
+  }
