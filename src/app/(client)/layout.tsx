@@ -4,6 +4,8 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { signIn, signOut, useSession } from "next-auth/react";
+import HeaderClient from "../../components/Header/HeaderClient";
+import HeaderMain from "@/components/Header/HeaderMain";
 
 export default function AdminLayout({
   children,
@@ -12,7 +14,7 @@ export default function AdminLayout({
 }) {
   return (
     <>
-      <Navbar bg="primary" data-bs-theme="dark">
+      {/* <Navbar bg="primary" data-bs-theme="dark">
         <Container>
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
@@ -21,7 +23,9 @@ export default function AdminLayout({
             <Nav.Link href="#pricing">Pricing</Nav.Link>
           </Nav>
         </Container>
-      </Navbar>
+      </Navbar> */}
+      <HeaderMain></HeaderMain>
+      <HeaderClient></HeaderClient>
       <section>{children}</section>
     </>
   );
