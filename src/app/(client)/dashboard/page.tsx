@@ -1,8 +1,10 @@
+import { Image } from "react-bootstrap";
+
 const ClientPage = () => {
   return (
-    <div>
-      <h1>Ahihi do ngoc Page</h1>
-    </div>
+    <>
+      <Image src="/test/slider_1_1.jpg" fluid />
+    </>
   );
 };
 

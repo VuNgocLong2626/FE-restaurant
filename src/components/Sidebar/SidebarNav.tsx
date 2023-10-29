@@ -177,12 +177,12 @@ export default function SidebarNav() {
       </SidebarNavItem>
       <SidebarNavTitle>Quản lý món ăn</SidebarNavTitle>
 
-      <SidebarNavItem icon={faChartPie} href="#">
-        Charts
+      <SidebarNavItem icon={faChartPie} href="/Admin/meal-admin">
+        Tất cả món ăn
       </SidebarNavItem>
 
-      <SidebarNavItem icon={faCalculator} href="#">
-        Widgets
+      <SidebarNavItem icon={faCalculator} href="/Admin/meal-create">
+        Tạo món ăn
         <small className="ms-auto">
           <Badge bg="info">NEW</Badge>
         </small>

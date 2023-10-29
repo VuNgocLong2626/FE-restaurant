@@ -7,7 +7,10 @@ interface PaginationControlsProps {
   hasPrevPage: boolean;
   lengthData: number;
   partion: number;
+  url: string;
   setPartion: (partion: number) => void;
+  seller?: string;
+  setSeller?: (seller: string) => void;
 }
 
 const PaginationControls: FC<PaginationControlsProps> = ({
@@ -16,6 +19,9 @@ const PaginationControls: FC<PaginationControlsProps> = ({
   lengthData,
   partion,
   setPartion,
+  url,
+  seller,
+  setSeller,
 }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -25,6 +31,26 @@ const PaginationControls: FC<PaginationControlsProps> = ({
 
   return (
     <div className="d-flex gap-2 align-items-center mb-3 justify-content-end">
+      {setSeller && (
+        <Form.Group
+          // className="d-flex col-auto ms-sm-auto mb-3 align-items-center mb-3 justify-content-end"
+          controlId="formBasicSelect"
+        >
+          <Form.Label className="me-2">Số lượng</Form.Label>
+          <Form.Control
+            as="select"
+            className="d-inline-block w-auto form-select"
+            value={seller}
+            onChange={(e) => {
+              setSeller(e.target.value || "A");
+            }}
+          >
+            <option value="A">All</option>
+            <option value="K">Chưa được</option>
+            <option value="B">Bán chạy</option>
+          </Form.Control>
+        </Form.Group>
+      )}
       <Form.Group
         // className="d-flex col-auto ms-sm-auto mb-3 align-items-center mb-3 justify-content-end"
         controlId="formBasicSelect"
@@ -35,24 +61,21 @@ const PaginationControls: FC<PaginationControlsProps> = ({
           className="d-inline-block w-auto form-select"
           value={partion}
           onChange={(e) => {
-            console.log("e.target.value", e.target.value);
             setPartion(parseInt(e.target.value));
           }}
         >
           <option value="2">2</option>
           <option value="5">5</option>
           <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="50">50</option>
         </Form.Control>
       </Form.Group>
       <Button
         variant="dark"
         disabled={!hasPrevPage}
         onClick={() => {
-          router.push(
-            `/Admin/category-admin/?page=${
-              Number(page) - 1
-            }&per_page=${partion}`
-          );
+          router.push(`${url}?page=${Number(page) - 1}&per_page=${partion}`);
         }}
       >
         Trang trước
@@ -66,11 +89,7 @@ const PaginationControls: FC<PaginationControlsProps> = ({
         variant="dark"
         disabled={!hasNextPage}
         onClick={() => {
-          router.push(
-            `/Admin/category-admin/?page=${
-              Number(page) + 1
-            }&per_page=${partion}`
-          );
+          router.push(`${url}?page=${Number(page) + 1}&per_page=${partion}`);
         }}
       >
         Trang tiếp theo

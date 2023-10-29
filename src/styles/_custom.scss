@@ -53,15 +53,15 @@
   height: 125px;
 }
 
-.nav-item {
-  display: inline-block;
-  float: none;
-  position: relative;
-  height: 125px;
-  margin: 0px 15px;
-  border-radius: 0px;
-  padding: 0px;
-}
+// .nav-item {
+//   display: inline-block;
+//   float: none;
+//   position: relative;
+//   height: 125px;
+//   margin: 0px 15px;
+//   border-radius: 0px;
+//   padding: 0px;
+// }
 
 .w-200 {
   padding: 0 100px;
@@ -83,4 +83,17 @@
 
 .m-20 {
   margin: 0 20px;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.image_meal {
+  display: flex;
+  justify-content: space-around;
+}
+
+.w-50-tb {
+  width: 100px;
 }

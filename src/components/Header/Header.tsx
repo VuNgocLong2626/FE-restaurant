@@ -20,7 +20,6 @@ export default function Header(props: HeaderProps) {
           type="button"
           onClick={toggleSidebar}
         >
-          MT
           <FontAwesomeIcon size="lg" icon={faBars} />
         </Button>
         <Button
@@ -29,7 +28,6 @@ export default function Header(props: HeaderProps) {
           type="button"
           onClick={toggleSidebarMd}
         >
-          đt
           <FontAwesomeIcon size="lg" icon={faBars} />
         </Button>
         <Link href="/" className="header-brand d-md-none">

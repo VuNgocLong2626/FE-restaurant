@@ -78,6 +78,7 @@ const CategoryAllPage = ({
       <h1>Tất cả loại món ăn</h1>
 
       <PaginationControls
+        url="/Admin/category-admin/"
         partion={type}
         setPartion={setType}
         lengthData={data?.length}
