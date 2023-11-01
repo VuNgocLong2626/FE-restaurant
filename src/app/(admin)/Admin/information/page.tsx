@@ -2,68 +2,21 @@
 
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
-import "./font.css";
-import axiosInstance from "@/config/axiosInstance";
-import useSWR, { mutate } from "swr";
-import { toast } from "react-toastify";
-import { useSession } from "next-auth/react";
+import "react-quill/dist/quill.snow.css"; // Import Quill styles
 import { Button } from "react-bootstrap";
+import { useSession } from "next-auth/react";
+import useSWR, { mutate } from "swr";
+import axiosInstance from "@/config/axiosInstance";
+import { toast } from "react-toastify";
 
-const QuillEditor = dynamic(
-  () =>
-    import("react-quill").then((mod) => {
-      const Quill = mod.default.Quill;
-      var Font = Quill.import("formats/font");
-      Font.whitelist = ["Roboto", "Raleway", "Montserrat", "Lato", "Rubik"];
-      Quill.register(Font, true);
-      return mod;
-    }),
-  { ssr: false }
-);
-
-const Quill = ReactQuill.Quill;
-var Font = Quill.import("formats/font");
-Font.whitelist = ["Roboto", "Raleway", "Montserrat", "Lato", "Rubik"];
-Quill.register(Font, true);
+const QuillEditor = dynamic(() => import("react-quill"), { ssr: false });
 
 export default function Home() {
   const [content, setContent] = useState("");
-  const { data: session } = useSession();
-  const fetcher = (url: string) =>
-    axiosInstance.get(url).then((res) => res.data);
 
-  const { data, error } = useSWR("/about/getAll", fetcher, {
-    revalidateIfStale: false,
-    revalidateOnFocus: false,
-    revalidateOnReconnect: false,
-  });
-
-  const handlerSubmit = async () => {
-    try {
-      const idAcount = session?.user?.id as string;
-      if (!idAcount) return;
-      if (!content) return;
-
-      const response = await axiosInstance.post("/about/create", {
-        content: content,
-        id: idAcount,
-      });
-      toast.info("Thêm thành công!");
-      mutate("/about/getAll");
-    } catch (error) {
-      console.log(error);
-    }
-  };
   const quillModules = {
     toolbar: [
-      [
-        { header: [1, 2, 3, 4, 5, 6, false] },
-        {
-          font: Font.whitelist,
-        },
-      ],
+      [{ header: [1, 2, 3, 4, 5, 6, false] }],
       ["bold", "italic", "underline", "strike", "blockquote"],
       [{ list: "ordered" }, { list: "bullet" }],
       ["link", "image"],
@@ -76,7 +29,6 @@ export default function Home() {
 
   const quillFormats = [
     "header",
-    "font",
     "bold",
     "italic",
     "underline",
@@ -90,16 +42,40 @@ export default function Home() {
     "color",
     "code-block",
   ];
-
-  const handleEditorChange = (newContent: any) => {
+  const handleEditorChange = (newContent: string) => {
     setContent(newContent);
   };
+  const { data: session } = useSession();
+  const fetcher = (url: string) =>
+    axiosInstance.get(url).then((res) => res.data);
 
-  console.log(content);
+  const { data, error } = useSWR("/about/getAll", fetcher, {
+    revalidateIfStale: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+  });
+
+  const handlerSubmit = async () => {
+    try {
+      // if (!session?.id) return;
+      const idAcount = session?.user?.id as string;
+      console.log(idAcount);
+      // const idAcount = localStorage.getItem("id");
+      if (!idAcount) return;
+      if (!content) return;
+
+      const response = await axiosInstance.post("/about/create", {
+        content: content,
+        id: idAcount,
+      });
+      toast.info("Thêm thành công!");
+      mutate("/about/getAll");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
-      {/* <div>{content}</div> */}
-
       <div>
         <h1>Thông tin trang web đang được hiển thị</h1>
         <div
@@ -120,7 +96,6 @@ export default function Home() {
           Tạo thông tin
         </Button>
       </div>
-
       <div>
         <h3>Thông tin sẽ đc hiển thị trang web</h3>
         <div

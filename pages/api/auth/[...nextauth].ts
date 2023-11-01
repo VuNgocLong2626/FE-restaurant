@@ -26,13 +26,14 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
             .catch((err) => {
               return err.response.data;
             });
-          // console.log("-----------user-----", user.token);
+          console.log("-----------user-----", user);
 
           res.setHeader(
             "Set-Cookie",
             `access-token=${user.token}; Path=/; Secure; HttpOnly;`
           );
           if (user.email) {
+            // localStorage.setItem("id", user.id);
             return user;
           } else {
             return null;

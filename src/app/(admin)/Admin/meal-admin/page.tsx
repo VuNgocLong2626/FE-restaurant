@@ -21,6 +21,7 @@ import {
   faBolt,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import CardImage from "@/components/CardImage";
 
 type Meal = {
   id: string;
@@ -158,6 +159,7 @@ const MealPage = ({
               <Image
                 width={100}
                 height={100}
+                alt="Preview"
                 //   align="center"
                 // src={showModalData.url}
                 fluid
@@ -212,9 +214,18 @@ const MealPage = ({
                     )}
                   </td>
                   <td className="image_meal">
-                    {item.url.map((url) => (
-                      <Image key={url} src={url} width={100} height={100} />
-                    ))}
+                    {/* <Image width={100} height={100} alt="Preview" src={item.url} /> */}
+                    <CardImage url={item.url} mainUrl={item.url[0]}></CardImage>
+
+                    {/* {item.url.map((url) => (
+                      <Image
+                        key={url}
+                        alt="Preview"
+                        src={url}
+                        width={100}
+                        height={100}
+                      />
+                    ))} */}
                   </td>
                   <td>
                     <div>

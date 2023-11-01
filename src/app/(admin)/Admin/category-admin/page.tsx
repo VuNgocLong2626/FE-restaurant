@@ -109,6 +109,7 @@ const CategoryAllPage = ({
                 width={100}
                 height={100}
                 //   align="center"
+                alt="Preview"
                 src={showModalData.url}
                 fluid
               />
@@ -157,6 +158,7 @@ const CategoryAllPage = ({
                       width={200}
                       height={200}
                       //   align="center"
+                      alt="Preview"
                       src={item.url}
                       fluid
                     />

@@ -36,7 +36,12 @@ export default function HeaderMain() {
                 </Link>
               </div>
               <div className="d-flex align-items-center">
-                <Image className="w-200" src="/test/logo.png" rounded />
+                <Image
+                  alt="Preview"
+                  className="w-200"
+                  src="/test/logo.png"
+                  rounded
+                />
               </div>
               <div className="d-flex justify-content-center align-items-center link">
                 <Link className="link header-link m-20" href="/">

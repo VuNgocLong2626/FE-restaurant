@@ -40,7 +40,7 @@ export default function HeaderClient() {
               >
                 <div className="p-2 bd-highlight">
                   <Link href="/">
-                    <Image src="/test/logo_mobi.png" rounded />
+                    <Image alt="Preview" src="/test/logo_mobi.png" rounded />
                   </Link>
                 </div>
                 {/* <div className="p-2 bd-highlight"></div> */}

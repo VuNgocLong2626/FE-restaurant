@@ -40,7 +40,7 @@ const LoginPage = () => {
       <Container className={styles.content}>
         <Row>
           <div className="col-md-6 .d-md-block">
-            <Image className="img-fluid" src="/login.svg" />
+            <Image alt="Preview" className="img-fluid" src="/login.svg" />
           </div>
           <div className="col-md-6 contents d-flex justify-content-center align-items-center">
             <Row className="justify-content-center">
