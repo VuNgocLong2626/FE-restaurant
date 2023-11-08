@@ -1,4 +1,3 @@
-import AppBar from "@/components/AppBar";
 import "./globals.scss";
 import Providers from "@/components/Providers";
 import "bootstrap/dist/css/bootstrap.min.css";

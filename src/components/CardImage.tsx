@@ -3,57 +3,58 @@
 import React, { useState } from "react";
 import { SlideshowLightbox } from "lightbox.js-react";
 import "lightbox.js-react/dist/index.css";
-import { Image } from "react-bootstrap";
+import { Card, Image } from "react-bootstrap";
 
 type dataImage = {
   url: string[];
   mainUrl: string;
+  card?: boolean;
 };
 
 const CardImage = (props: dataImage) => {
-  const { url, mainUrl } = props;
+  const { url, mainUrl, card } = props;
+
   const images = url.map((url) => {
     return {
       src: url,
       alt: "Mechanical keyboard with white keycaps.",
     };
   });
-  //   const images = [
-  //     {
-  //       src: "https://source.unsplash.com/sQZ_A17cufs/549x711",
-  //       alt: "Mechanical keyboard with white keycaps.",
-  //     },
-  //     {
-  //       src: "https://source.unsplash.com/rsAeSMzOX9Y/768x512",
-  //       alt: "Mechanical keyboard with white, pastel green and red keycaps.",
-  //     },
-  //     {
-  //       src: "https://source.unsplash.com/Z6SXt1v5tP8/768x512",
-  //       alt: "Mechanical keyboard with white, pastel pink, yellow and red keycaps.",
-  //     },
-  //   ];
 
   let [isOpen, setIsOpen] = useState(false);
 
+  const hoverZoom = {
+    transition: "transform 0.2s", // Define the transition duration
+    "&:hover": {
+      transform: "scale(1.1)", // Apply the zoom effect
+    },
+    cursor: "pointer",
+  };
   return (
     <div>
-      {/* <button
-        onClick={() => {
-          setIsOpen(true);
-        }}
-      >
-        Open Lightbox
-      </button> */}
-      <Image
-        style={{ cursor: "pointer" }}
-        onClick={() => {
-          setIsOpen(true);
-        }}
-        width={100}
-        height={100}
-        alt="Preview"
-        src={mainUrl}
-      />
+      {card ? (
+        <Card.Img
+          variant="top"
+          // style={{ cursor: "pointer" }}
+          style={hoverZoom}
+          onClick={() => {
+            setIsOpen(true);
+          }}
+          src={mainUrl}
+        />
+      ) : (
+        // <Card.Img variant="top" src={mainUrl} />
+        <Image
+          style={{ cursor: "pointer" }}
+          onClick={() => {
+            setIsOpen(true);
+          }}
+          width={100}
+          height={100}
+          alt="Preview"
+          src={mainUrl}
+        />
+      )}
 
       <SlideshowLightbox
         images={images}

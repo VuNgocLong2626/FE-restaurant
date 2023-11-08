@@ -1,0 +1,67 @@
+@font-face {
+    font-family: "UTM Bebas";
+    src: url("https://db.onlinewebfonts.com/t/6f094b59f91b55e7766336bafb802177.eot");
+    src: url("https://db.onlinewebfonts.com/t/6f094b59f91b55e7766336bafb802177.eot?#iefix")format("embedded-opentype"),
+        url("https://db.onlinewebfonts.com/t/6f094b59f91b55e7766336bafb802177.woff2")format("woff2"),
+        url("https://db.onlinewebfonts.com/t/6f094b59f91b55e7766336bafb802177.woff")format("woff"),
+        url("https://db.onlinewebfonts.com/t/6f094b59f91b55e7766336bafb802177.ttf")format("truetype"),
+        url("https://db.onlinewebfonts.com/t/6f094b59f91b55e7766336bafb802177.svg#UTM Bebas")format("svg");
+}
+
+.section_category {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.header-category {
+    text-align: center;
+    font-family: 'UTM Bebas';
+}
+
+.item-category {
+    text-align: center;
+    font-family: 'UTM Bebas';
+}
+
+.element-category {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.yourSelector {
+    :global(.carousel .control-dots .dot) {
+        background-color: blue;
+    }
+}
+
+.carousel-indicators li {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    margin: 10px;
+    text-indent: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    background-color: #0000ff;
+    box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-indicators .active {
+    width: 48px;
+    height: 48px;
+    margin: 10px;
+    background-color: #ffff99;
+}
+
+.carousel-indicators li {
+    background-color: #000 !important;
+    /*more custom style*/
+}
+
+.carousel-indicators .active {
+    background-color: rgb(172, 29, 29) !important;
+}
